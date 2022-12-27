@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javaTraining.nobug.mapper.RoleMapper">
+
+    <sql id="page">
+        <if test="pageNum != null and pageSize != null">
+            <bind name="curNum" value="(pageNum-1)*pageSize" />
+            limit #{curNum},#{pageSize}
+        </if>
+    </sql>
+
+    <select id="getRolesByUserId" resultType="com.javaTraining.nobug.pojo.Role" parameterType="java.lang.Long">
+        select * from roles r,user_role ur where r.role_id = ur.role_id
+                                             and ur.user_id = #{userId,jdbcType=BIGINT}
+    </select>
+
+    <select id="getRoleListByPage" resultType="com.javaTraining.nobug.vo.RoleResponseVo" parameterType="java.util.Map">
+        select r.role_id,r.role_name,r.is_delete
+        from roles as r
+        order by r.is_delete
+        <include refid="page"></include>
+    </select>
+
+    <insert id="addRole" parameterType="com.javaTraining.nobug.pojo.Role">
+        insert into roles (role_id, role_name, is_delete) values (#{roleId},#{roleName},#{isDelete})
+    </insert>
+</mapper>

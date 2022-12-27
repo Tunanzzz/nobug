@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javaTraining.nobug.mapper.ThresholdMapper">
+    
+    <select id="SelectThresholdById" parameterType="java.lang.Long" resultType="com.javaTraining.nobug.vo.ThresholdVo">
+        select t.threshold_id,t.parameter_id,t.parameter_value,t.parameter_score,ap.parameter_name
+        from thresholds as t,assess_parameter as ap
+        where t.threshold_id = #{thresholdId} AND t.parameter_id = ap.parameter_id
+    </select>
+
+    <select id="SelectThresholdByParameterId" parameterType="java.lang.Long" resultType="com.javaTraining.nobug.vo.ThresholdVo">
+        select t.threshold_id,t.parameter_id,t.parameter_value,t.parameter_score,ap.parameter_name
+        from thresholds as t,assess_parameter as ap
+        where t.parameter_id=#{parameterId} AND t.parameter_id=ap.parameter_id AND t.is_delete=0 AND ap.is_delete=0
+        order by t.parameter_value
+    </select>
+</mapper>

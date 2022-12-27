@@ -1,0 +1,620 @@
+2022-07-13 11:04:19.557  INFO 26808 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 26808 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 11:04:19.564  INFO 26808 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 11:04:20.592  INFO 26808 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 11:04:20.594  INFO 26808 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 11:04:20.636  INFO 26808 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26ms. Found 0 Redis repository interfaces.
+2022-07-13 11:04:21.655  INFO 26808 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 11:04:21.663  INFO 26808 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 11:04:21.663  INFO 26808 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 11:04:21.880  INFO 26808 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 11:04:21.881  INFO 26808 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2262 ms
+2022-07-13 11:04:21.954  INFO 26808 --- [main] sConfig$$EnhancerBySpringCGLIB$$470b5c9f : ====Mybatis Plus====
+2022-07-13 11:04:22.348  WARN 26808 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 11:04:23.438  WARN 26808 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 11:04:23.723  INFO 26808 --- [main] uration$$EnhancerBySpringCGLIB$$291f2d2a : ====通过登录拦截器====
+2022-07-13 11:04:23.726  INFO 26808 --- [main] uration$$EnhancerBySpringCGLIB$$291f2d2a : ====解决跨域问题成功！！！====
+2022-07-13 11:04:23.847  INFO 26808 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 11:04:23.930  INFO 26808 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:04:24.534  INFO 26808 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 11:04:24.535  INFO 26808 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 11:04:24.555  INFO 26808 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 11:04:24.579  INFO 26808 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 11:04:24.634  INFO 26808 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-13 11:04:24.634  INFO 26808 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-13 11:04:24.643  INFO 26808 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2022-07-13 11:04:24.915  INFO 26808 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 5.748 seconds (JVM running for 6.559)
+2022-07-13 11:04:31.684  INFO 26808 --- [http-nio-8081-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-13 11:04:32.622  INFO 26808 --- [http-nio-8081-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-13 11:04:44.602 ERROR 26808 --- [http-nio-8081-exec-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'user_id' in 'where clause'
+### The error may exist in com/javaTraining/nobug/mapper/RoleMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT  role_id,role_name,is_delete  FROM roles     WHERE (user_id IN (?))
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'user_id' in 'where clause'
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'user_id' in 'where clause'] with root cause
+
+java.sql.SQLSyntaxErrorException: Unknown column 'user_id' in 'where clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.5.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79) ~[mybatis-3.5.9.jar:3.5.9]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_251]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_251]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_251]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_251]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:64) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.sun.proxy.$Proxy150.query(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.core.executor.MybatisSimpleExecutor.doQuery(MybatisSimpleExecutor.java:67) ~[mybatis-plus-core-3.3.2.jar:3.3.2]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.core.executor.MybatisCachingExecutor.query(MybatisCachingExecutor.java:163) ~[mybatis-plus-core-3.3.2.jar:3.3.2]
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:132) ~[pagehelper-5.3.0.jar:na]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:62) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.sun.proxy.$Proxy149.query(Unknown Source) ~[na:na]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:151) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.9.jar:3.5.9]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_251]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_251]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_251]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_251]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.7.jar:2.0.7]
+	at com.sun.proxy.$Proxy71.selectList(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224) ~[mybatis-spring-2.0.7.jar:2.0.7]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:177) ~[mybatis-plus-core-3.3.2.jar:3.3.2]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:78) ~[mybatis-plus-core-3.3.2.jar:3.3.2]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:96) ~[mybatis-plus-core-3.3.2.jar:3.3.2]
+	at com.sun.proxy.$Proxy94.selectList(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_251]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_251]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_251]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_251]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139) ~[spring-tx-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at com.sun.proxy.$Proxy95.selectList(Unknown Source) ~[na:na]
+	at com.javaTraining.nobug.service.impl.PermissionServiceImpl.getPermissionsByUserid(PermissionServiceImpl.java:34) ~[classes/:na]
+	at com.javaTraining.nobug.service.impl.PermissionServiceImpl$$FastClassBySpringCGLIB$$b1028d31.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at com.javaTraining.nobug.service.impl.PermissionServiceImpl$$EnhancerBySpringCGLIB$$c0260f22.getPermissionsByUserid(<generated>) ~[classes/:na]
+	at com.javaTraining.nobug.controller.PermissionController.getPermissionByUserId(PermissionController.java:45) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_251]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_251]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_251]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_251]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_251]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_251]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_251]
+
+2022-07-13 11:10:38.392  INFO 26808 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:10:38.395  INFO 26808 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-13 11:10:38.403  INFO 26808 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-13 11:10:43.774  INFO 115836 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 115836 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 11:10:43.776  INFO 115836 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 11:10:44.624  INFO 115836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 11:10:44.626  INFO 115836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 11:10:44.663  INFO 115836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26ms. Found 0 Redis repository interfaces.
+2022-07-13 11:10:45.543  INFO 115836 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 11:10:45.552  INFO 115836 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 11:10:45.553  INFO 115836 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 11:10:45.754  INFO 115836 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 11:10:45.754  INFO 115836 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1931 ms
+2022-07-13 11:10:45.832  INFO 115836 --- [main] sConfig$$EnhancerBySpringCGLIB$$7f822e06 : ====Mybatis Plus====
+2022-07-13 11:10:46.191  WARN 115836 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 11:10:47.105  WARN 115836 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 11:10:47.519  INFO 115836 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====通过登录拦截器====
+2022-07-13 11:10:47.522  INFO 115836 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====解决跨域问题成功！！！====
+2022-07-13 11:10:47.620  INFO 115836 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 11:10:47.705  INFO 115836 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:10:48.315  INFO 115836 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 11:10:48.316  INFO 115836 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 11:10:48.339  INFO 115836 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 11:10:48.365  INFO 115836 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 11:10:48.584  INFO 115836 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 5.157 seconds (JVM running for 5.885)
+2022-07-13 11:10:51.824  INFO 115836 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-13 11:10:51.824  INFO 115836 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-13 11:10:51.831  INFO 115836 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2022-07-13 11:10:52.393  INFO 115836 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-13 11:10:53.138  INFO 115836 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-13 11:12:06.810  INFO 115836 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:12:06.814  INFO 115836 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-13 11:12:06.825  INFO 115836 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-13 11:12:12.446  INFO 104672 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 104672 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 11:12:12.448  INFO 104672 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 11:12:13.242  INFO 104672 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 11:12:13.244  INFO 104672 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 11:12:13.276  INFO 104672 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23ms. Found 0 Redis repository interfaces.
+2022-07-13 11:12:14.153  INFO 104672 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 11:12:14.160  INFO 104672 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 11:12:14.160  INFO 104672 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 11:12:14.346  INFO 104672 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 11:12:14.346  INFO 104672 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1861 ms
+2022-07-13 11:12:14.421  INFO 104672 --- [main] sConfig$$EnhancerBySpringCGLIB$$7f822e06 : ====Mybatis Plus====
+2022-07-13 11:12:14.758  WARN 104672 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 11:12:15.658  WARN 104672 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 11:12:16.063  INFO 104672 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====通过登录拦截器====
+2022-07-13 11:12:16.066  INFO 104672 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====解决跨域问题成功！！！====
+2022-07-13 11:12:16.175  INFO 104672 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 11:12:16.264  INFO 104672 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:12:16.806  INFO 104672 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 11:12:16.807  INFO 104672 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 11:12:16.827  INFO 104672 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 11:12:16.853  INFO 104672 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 11:12:17.094  INFO 104672 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 4.98 seconds (JVM running for 5.696)
+2022-07-13 11:12:23.214  INFO 104672 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-13 11:12:23.214  INFO 104672 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-13 11:12:23.219  INFO 104672 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2022-07-13 11:12:23.329  INFO 104672 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-13 11:12:24.172  INFO 104672 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-13 11:13:34.022  INFO 104672 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:13:34.024  INFO 104672 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-13 11:13:34.033  INFO 104672 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-13 11:13:39.496  INFO 14076 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 14076 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 11:13:39.498  INFO 14076 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 11:13:40.279  INFO 14076 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 11:13:40.281  INFO 14076 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 11:13:40.312  INFO 14076 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21ms. Found 0 Redis repository interfaces.
+2022-07-13 11:13:41.221  INFO 14076 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 11:13:41.228  INFO 14076 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 11:13:41.229  INFO 14076 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 11:13:41.412  INFO 14076 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 11:13:41.412  INFO 14076 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1872 ms
+2022-07-13 11:13:41.481  INFO 14076 --- [main] sConfig$$EnhancerBySpringCGLIB$$7f822e06 : ====Mybatis Plus====
+2022-07-13 11:13:41.856  WARN 14076 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 11:13:42.780  WARN 14076 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 11:13:43.212  INFO 14076 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====通过登录拦截器====
+2022-07-13 11:13:43.214  INFO 14076 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====解决跨域问题成功！！！====
+2022-07-13 11:13:43.325  INFO 14076 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 11:13:43.414  INFO 14076 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:13:43.935  INFO 14076 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 11:13:43.936  INFO 14076 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 11:13:43.957  INFO 14076 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 11:13:43.990  INFO 14076 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 11:13:44.223  INFO 14076 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 5.069 seconds (JVM running for 5.777)
+2022-07-13 11:13:47.439  INFO 14076 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-13 11:13:47.440  INFO 14076 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-13 11:13:47.445  INFO 14076 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2022-07-13 11:13:47.556  INFO 14076 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-13 11:13:48.446  INFO 14076 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-13 11:16:14.336  INFO 14076 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:16:14.339  INFO 14076 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-13 11:16:14.350  INFO 14076 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-13 11:16:20.310  INFO 109500 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 109500 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 11:16:20.311  INFO 109500 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 11:16:21.106  INFO 109500 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 11:16:21.108  INFO 109500 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 11:16:21.139  INFO 109500 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22ms. Found 0 Redis repository interfaces.
+2022-07-13 11:16:22.038  INFO 109500 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 11:16:22.047  INFO 109500 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 11:16:22.047  INFO 109500 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 11:16:22.222  INFO 109500 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 11:16:22.222  INFO 109500 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1875 ms
+2022-07-13 11:16:22.298  INFO 109500 --- [main] sConfig$$EnhancerBySpringCGLIB$$7f822e06 : ====Mybatis Plus====
+2022-07-13 11:16:22.661  WARN 109500 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 11:16:23.545  WARN 109500 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 11:16:23.993  INFO 109500 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====通过登录拦截器====
+2022-07-13 11:16:23.996  INFO 109500 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====解决跨域问题成功！！！====
+2022-07-13 11:16:24.098  INFO 109500 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 11:16:24.176  INFO 109500 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:16:24.713  INFO 109500 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 11:16:24.713  INFO 109500 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 11:16:24.737  INFO 109500 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 11:16:24.761  INFO 109500 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 11:16:24.994  INFO 109500 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 5.041 seconds (JVM running for 5.837)
+2022-07-13 11:16:27.673  INFO 109500 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-13 11:16:27.674  INFO 109500 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-13 11:16:27.679  INFO 109500 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2022-07-13 11:16:27.787  INFO 109500 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-13 11:16:29.113  INFO 109500 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-13 11:17:53.101  INFO 109500 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:17:53.103  INFO 109500 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-13 11:17:53.113  INFO 109500 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-13 11:17:58.384  INFO 97104 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 97104 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 11:17:58.386  INFO 97104 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 11:17:59.189  INFO 97104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 11:17:59.190  INFO 97104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 11:17:59.220  INFO 97104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20ms. Found 0 Redis repository interfaces.
+2022-07-13 11:18:00.138  INFO 97104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 11:18:00.146  INFO 97104 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 11:18:00.146  INFO 97104 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 11:18:00.315  INFO 97104 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 11:18:00.315  INFO 97104 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1884 ms
+2022-07-13 11:18:00.385  INFO 97104 --- [main] sConfig$$EnhancerBySpringCGLIB$$7f822e06 : ====Mybatis Plus====
+2022-07-13 11:18:00.721  WARN 97104 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 11:18:01.613  WARN 97104 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 11:18:02.059  INFO 97104 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====通过登录拦截器====
+2022-07-13 11:18:02.063  INFO 97104 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====解决跨域问题成功！！！====
+2022-07-13 11:18:02.193  INFO 97104 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 11:18:02.304  INFO 97104 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:18:02.882  INFO 97104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 11:18:02.884  INFO 97104 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 11:18:02.912  INFO 97104 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 11:18:02.940  INFO 97104 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 11:18:03.207  INFO 97104 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 5.167 seconds (JVM running for 5.822)
+2022-07-13 11:18:06.845  INFO 97104 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-13 11:18:06.845  INFO 97104 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-13 11:18:06.851  INFO 97104 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2022-07-13 11:18:06.964  INFO 97104 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-13 11:18:07.826  INFO 97104 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-13 11:18:15.506  INFO 97104 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:18:15.510  INFO 97104 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-13 11:18:15.517  INFO 97104 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-13 11:18:35.537  INFO 69360 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 69360 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 11:18:35.540  INFO 69360 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 11:18:36.778  INFO 69360 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 11:18:36.781  INFO 69360 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 11:18:36.828  INFO 69360 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36ms. Found 0 Redis repository interfaces.
+2022-07-13 11:18:38.129  INFO 69360 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 11:18:38.133  INFO 82276 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 82276 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 11:18:38.135  INFO 82276 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 11:18:38.139  INFO 69360 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 11:18:38.139  INFO 69360 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 11:18:38.431  INFO 69360 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 11:18:38.431  INFO 69360 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2833 ms
+2022-07-13 11:18:38.511  INFO 69360 --- [main] sConfig$$EnhancerBySpringCGLIB$$c15746b5 : ====Mybatis Plus====
+2022-07-13 11:18:38.983  WARN 69360 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 11:18:39.172  INFO 82276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 11:18:39.174  INFO 82276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 11:18:39.204  INFO 82276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21ms. Found 0 Redis repository interfaces.
+2022-07-13 11:18:40.057  WARN 69360 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 11:18:40.356  INFO 82276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 11:18:40.373  INFO 82276 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 11:18:40.373  INFO 82276 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 11:18:40.739  INFO 69360 --- [main] uration$$EnhancerBySpringCGLIB$$a36b1740 : ====通过登录拦截器====
+2022-07-13 11:18:40.748  INFO 69360 --- [main] uration$$EnhancerBySpringCGLIB$$a36b1740 : ====解决跨域问题成功！！！====
+2022-07-13 11:18:40.898  INFO 82276 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 11:18:40.898  INFO 82276 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2713 ms
+2022-07-13 11:18:40.922  INFO 69360 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 11:18:41.056  INFO 82276 --- [main] sConfig$$EnhancerBySpringCGLIB$$504867d7 : ====Mybatis Plus====
+2022-07-13 11:18:41.057  INFO 69360 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:18:41.852  WARN 82276 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 11:18:42.055  INFO 69360 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 11:18:42.056  INFO 69360 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 11:18:42.084  INFO 69360 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 11:18:42.117  INFO 69360 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 11:18:42.395  INFO 69360 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 7.258 seconds (JVM running for 8.266)
+2022-07-13 11:18:42.993  WARN 82276 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 11:18:43.428  INFO 82276 --- [main] uration$$EnhancerBySpringCGLIB$$325c3862 : ====通过登录拦截器====
+2022-07-13 11:18:43.431  INFO 82276 --- [main] uration$$EnhancerBySpringCGLIB$$325c3862 : ====解决跨域问题成功！！！====
+2022-07-13 11:18:43.527  INFO 82276 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 11:18:43.606  INFO 82276 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:18:44.162  WARN 82276 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8081 is already in use
+2022-07-13 11:18:44.182  INFO 82276 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:18:44.188  INFO 82276 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-07-13 11:18:44.196  INFO 82276 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-07-13 11:18:44.197 ERROR 82276 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+2022-07-13 11:19:10.724  INFO 69360 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-13 11:19:10.724  INFO 69360 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-13 11:19:10.729  INFO 69360 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2022-07-13 11:19:10.852  INFO 69360 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-13 11:19:11.768  INFO 69360 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-13 11:19:35.195  INFO 69360 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:19:35.198  INFO 69360 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-13 11:19:35.208  INFO 69360 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-13 11:23:45.913  INFO 87720 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 87720 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 11:23:45.916  INFO 87720 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 11:23:46.779  INFO 87720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 11:23:46.782  INFO 87720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 11:23:46.814  INFO 87720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20ms. Found 0 Redis repository interfaces.
+2022-07-13 11:23:47.760  INFO 87720 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 11:23:47.769  INFO 87720 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 11:23:47.769  INFO 87720 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 11:23:47.957  INFO 87720 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 11:23:47.957  INFO 87720 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2001 ms
+2022-07-13 11:23:48.038  INFO 87720 --- [main] sConfig$$EnhancerBySpringCGLIB$$504867d7 : ====Mybatis Plus====
+2022-07-13 11:23:48.443  WARN 87720 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 11:23:49.353  WARN 87720 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 11:23:49.805  INFO 87720 --- [main] uration$$EnhancerBySpringCGLIB$$325c3862 : ====通过登录拦截器====
+2022-07-13 11:23:49.808  INFO 87720 --- [main] uration$$EnhancerBySpringCGLIB$$325c3862 : ====解决跨域问题成功！！！====
+2022-07-13 11:23:49.909  INFO 87720 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 11:23:49.988  INFO 87720 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:23:50.544  INFO 87720 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 11:23:50.545  INFO 87720 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 11:23:50.568  INFO 87720 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 11:23:50.592  INFO 87720 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 11:23:50.828  INFO 87720 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 5.274 seconds (JVM running for 6.175)
+2022-07-13 11:23:59.464  INFO 87720 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-13 11:23:59.464  INFO 87720 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-13 11:23:59.469  INFO 87720 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2022-07-13 11:24:29.683  INFO 87720 --- [http-nio-8081-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-13 11:24:30.596  INFO 87720 --- [http-nio-8081-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-13 11:24:44.666  INFO 87720 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:24:44.670  INFO 87720 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-13 11:24:44.677  INFO 87720 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-13 11:51:06.451  INFO 117512 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 117512 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 11:51:06.454  INFO 117512 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 11:51:07.322  INFO 117512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 11:51:07.324  INFO 117512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 11:51:07.359  INFO 117512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22ms. Found 0 Redis repository interfaces.
+2022-07-13 11:51:08.269  INFO 117512 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 11:51:08.278  INFO 117512 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 11:51:08.278  INFO 117512 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 11:51:08.509  INFO 117512 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 11:51:08.509  INFO 117512 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2016 ms
+2022-07-13 11:51:08.593  INFO 117512 --- [main] sConfig$$EnhancerBySpringCGLIB$$504867d7 : ====Mybatis Plus====
+2022-07-13 11:51:08.999  WARN 117512 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 11:51:09.845  WARN 117512 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 11:51:10.268  INFO 117512 --- [main] uration$$EnhancerBySpringCGLIB$$325c3862 : ====通过登录拦截器====
+2022-07-13 11:51:10.271  INFO 117512 --- [main] uration$$EnhancerBySpringCGLIB$$325c3862 : ====解决跨域问题成功！！！====
+2022-07-13 11:51:10.374  INFO 117512 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 11:51:10.460  INFO 117512 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:51:11.062  INFO 117512 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 11:51:11.064  INFO 117512 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 11:51:11.086  INFO 117512 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 11:51:11.114  INFO 117512 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 11:51:11.341  INFO 117512 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 5.26 seconds (JVM running for 6.145)
+2022-07-13 11:51:18.406  INFO 117512 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-13 11:51:18.406  INFO 117512 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-13 11:51:18.411  INFO 117512 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2022-07-13 11:51:18.532  INFO 117512 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-13 11:51:19.419  INFO 117512 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-13 11:55:30.514  INFO 117512 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:55:30.517  INFO 117512 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-13 11:55:30.526  INFO 117512 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-13 11:55:36.589  INFO 110160 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 110160 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 11:55:36.591  INFO 110160 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 11:55:37.451  INFO 110160 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 11:55:37.453  INFO 110160 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 11:55:37.491  INFO 110160 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27ms. Found 0 Redis repository interfaces.
+2022-07-13 11:55:38.486  INFO 110160 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 11:55:38.497  INFO 110160 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 11:55:38.497  INFO 110160 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 11:55:38.772  INFO 110160 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 11:55:38.772  INFO 110160 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2143 ms
+2022-07-13 11:55:38.849  INFO 110160 --- [main] sConfig$$EnhancerBySpringCGLIB$$504867d7 : ====Mybatis Plus====
+2022-07-13 11:55:39.190  WARN 110160 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 11:55:40.125  WARN 110160 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 11:55:40.548  INFO 110160 --- [main] uration$$EnhancerBySpringCGLIB$$325c3862 : ====通过登录拦截器====
+2022-07-13 11:55:40.550  INFO 110160 --- [main] uration$$EnhancerBySpringCGLIB$$325c3862 : ====解决跨域问题成功！！！====
+2022-07-13 11:55:40.641  INFO 110160 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 11:55:40.733  INFO 110160 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:55:41.289  INFO 110160 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 11:55:41.290  INFO 110160 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 11:55:41.309  INFO 110160 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 11:55:41.334  INFO 110160 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 11:55:41.582  INFO 110160 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 5.32 seconds (JVM running for 6.165)
+2022-07-13 11:55:43.284  INFO 110160 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-13 11:55:43.284  INFO 110160 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-13 11:55:43.289  INFO 110160 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2022-07-13 11:56:23.759  WARN 110160 --- [http-nio-8081-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('p' (code 112)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('p' (code 112)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 2, column: 5]]
+2022-07-13 11:58:25.161  INFO 110160 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:58:30.745  INFO 119232 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 119232 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 11:58:30.748  INFO 119232 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 11:58:31.506  INFO 119232 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 11:58:31.508  INFO 119232 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 11:58:31.545  INFO 119232 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27ms. Found 0 Redis repository interfaces.
+2022-07-13 11:58:32.482  INFO 119232 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 11:58:32.490  INFO 119232 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 11:58:32.490  INFO 119232 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 11:58:32.734  INFO 119232 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 11:58:32.734  INFO 119232 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1950 ms
+2022-07-13 11:58:32.811  INFO 119232 --- [main] sConfig$$EnhancerBySpringCGLIB$$7f822e06 : ====Mybatis Plus====
+2022-07-13 11:58:33.170  WARN 119232 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 11:58:34.116  WARN 119232 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 11:58:34.542  INFO 119232 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====通过登录拦截器====
+2022-07-13 11:58:34.545  INFO 119232 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====解决跨域问题成功！！！====
+2022-07-13 11:58:34.648  INFO 119232 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 11:58:34.743  INFO 119232 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 11:58:35.326  INFO 119232 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 11:58:35.326  INFO 119232 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 11:58:35.347  INFO 119232 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 11:58:35.372  INFO 119232 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 11:58:35.635  INFO 119232 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 5.213 seconds (JVM running for 5.925)
+2022-07-13 11:58:38.660  INFO 119232 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-13 11:58:38.661  INFO 119232 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-13 11:58:38.665  INFO 119232 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2022-07-13 11:58:48.673  WARN 119232 --- [http-nio-8081-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 3, column: 2]]
+2022-07-13 12:00:32.007  WARN 119232 --- [http-nio-8081-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 3, column: 2]]
+2022-07-13 12:01:09.154  INFO 119232 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 12:01:15.596  INFO 99772 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 99772 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 12:01:15.600  INFO 99772 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 12:01:16.513  INFO 99772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 12:01:16.515  INFO 99772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 12:01:16.568  INFO 99772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40ms. Found 0 Redis repository interfaces.
+2022-07-13 12:01:17.531  INFO 99772 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 12:01:17.540  INFO 99772 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 12:01:17.540  INFO 99772 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 12:01:17.755  INFO 99772 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 12:01:17.755  INFO 99772 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2103 ms
+2022-07-13 12:01:17.828  INFO 99772 --- [main] sConfig$$EnhancerBySpringCGLIB$$7f822e06 : ====Mybatis Plus====
+2022-07-13 12:01:18.212  WARN 99772 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 12:01:19.098  WARN 99772 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 12:01:19.541  INFO 99772 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====通过登录拦截器====
+2022-07-13 12:01:19.544  INFO 99772 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====解决跨域问题成功！！！====
+2022-07-13 12:01:19.676  INFO 99772 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 12:01:19.789  INFO 99772 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 12:01:20.361  INFO 99772 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 12:01:20.362  INFO 99772 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 12:01:20.386  INFO 99772 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 12:01:20.418  INFO 99772 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 12:01:20.678  INFO 99772 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 5.413 seconds (JVM running for 6.116)
+2022-07-13 12:01:24.060  INFO 99772 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-13 12:01:24.060  INFO 99772 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-13 12:01:24.066  INFO 99772 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2022-07-13 12:01:24.591  WARN 99772 --- [http-nio-8081-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 3, column: 2]]
+2022-07-13 12:01:42.834  INFO 99772 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 12:01:48.457  INFO 115320 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 115320 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 12:01:48.459  INFO 115320 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 12:01:49.270  INFO 115320 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 12:01:49.272  INFO 115320 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 12:01:49.306  INFO 115320 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24ms. Found 0 Redis repository interfaces.
+2022-07-13 12:01:50.225  INFO 115320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 12:01:50.234  INFO 115320 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 12:01:50.234  INFO 115320 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 12:01:50.430  INFO 115320 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 12:01:50.430  INFO 115320 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1934 ms
+2022-07-13 12:01:50.501  INFO 115320 --- [main] sConfig$$EnhancerBySpringCGLIB$$7f822e06 : ====Mybatis Plus====
+2022-07-13 12:01:50.851  WARN 115320 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 12:01:51.786  WARN 115320 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 12:01:52.272  INFO 115320 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====通过登录拦截器====
+2022-07-13 12:01:52.275  INFO 115320 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====解决跨域问题成功！！！====
+2022-07-13 12:01:52.385  INFO 115320 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 12:01:52.481  INFO 115320 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 12:01:53.069  INFO 115320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 12:01:53.070  INFO 115320 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 12:01:53.090  INFO 115320 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 12:01:53.116  INFO 115320 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 12:01:53.332  INFO 115320 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 5.212 seconds (JVM running for 6.049)
+2022-07-13 12:01:54.737  INFO 115320 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-13 12:01:54.737  INFO 115320 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-13 12:01:54.742  INFO 115320 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2022-07-13 12:01:55.316  WARN 115320 --- [http-nio-8081-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 3, column: 2]]
+2022-07-13 12:02:05.575  INFO 115320 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 12:02:10.948  INFO 98388 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 98388 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 12:02:10.950  INFO 98388 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 12:02:11.756  INFO 98388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 12:02:11.757  INFO 98388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 12:02:11.789  INFO 98388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23ms. Found 0 Redis repository interfaces.
+2022-07-13 12:02:12.662  INFO 98388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 12:02:12.670  INFO 98388 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 12:02:12.670  INFO 98388 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 12:02:12.860  INFO 98388 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 12:02:12.860  INFO 98388 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1868 ms
+2022-07-13 12:02:12.931  INFO 98388 --- [main] sConfig$$EnhancerBySpringCGLIB$$7f822e06 : ====Mybatis Plus====
+2022-07-13 12:02:13.267  WARN 98388 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 12:02:14.137  WARN 98388 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 12:02:14.593  INFO 98388 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====通过登录拦截器====
+2022-07-13 12:02:14.596  INFO 98388 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====解决跨域问题成功！！！====
+2022-07-13 12:02:14.712  INFO 98388 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 12:02:14.824  INFO 98388 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 12:02:15.431  INFO 98388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 12:02:15.432  INFO 98388 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 12:02:15.452  INFO 98388 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 12:02:15.485  INFO 98388 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 12:02:15.725  INFO 98388 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 5.091 seconds (JVM running for 5.83)
+2022-07-13 12:02:19.393  INFO 98388 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-13 12:02:19.393  INFO 98388 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-13 12:02:19.400  INFO 98388 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2022-07-13 12:02:19.968  WARN 98388 --- [http-nio-8081-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 3, column: 2]]
+2022-07-13 12:03:13.660  INFO 98388 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 12:03:19.102  INFO 98292 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 98292 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 12:03:19.103  INFO 98292 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 12:03:19.912  INFO 98292 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 12:03:19.914  INFO 98292 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 12:03:19.947  INFO 98292 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23ms. Found 0 Redis repository interfaces.
+2022-07-13 12:03:20.883  INFO 98292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 12:03:20.892  INFO 98292 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 12:03:20.892  INFO 98292 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 12:03:21.071  INFO 98292 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 12:03:21.071  INFO 98292 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1927 ms
+2022-07-13 12:03:21.143  INFO 98292 --- [main] sConfig$$EnhancerBySpringCGLIB$$7f822e06 : ====Mybatis Plus====
+2022-07-13 12:03:21.491  WARN 98292 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 12:03:22.437  WARN 98292 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 12:03:22.876  INFO 98292 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====通过登录拦截器====
+2022-07-13 12:03:22.879  INFO 98292 --- [main] uration$$EnhancerBySpringCGLIB$$6195fe91 : ====解决跨域问题成功！！！====
+2022-07-13 12:03:22.991  INFO 98292 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 12:03:23.073  INFO 98292 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 12:03:23.645  INFO 98292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 12:03:23.645  INFO 98292 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 12:03:23.664  INFO 98292 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 12:03:23.689  INFO 98292 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 12:03:23.822  INFO 98292 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-13 12:03:23.822  INFO 98292 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-13 12:03:23.829  INFO 98292 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2022-07-13 12:03:23.946  INFO 98292 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 5.179 seconds (JVM running for 5.934)
+2022-07-13 12:03:28.813  WARN 98292 --- [http-nio-8081-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 3, column: 2]]
+2022-07-13 12:06:26.004  WARN 98292 --- [http-nio-8081-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 3, column: 2]]
+2022-07-13 12:06:57.265  INFO 98292 --- [http-nio-8081-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-13 12:06:58.025  INFO 98292 --- [http-nio-8081-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-13 12:08:27.987  INFO 98292 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-13 12:08:27.989  INFO 98292 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-13 12:08:27.999  INFO 98292 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-13 13:34:00.152  INFO 119720 --- [main] com.javaTraining.nobug.NobugApplication  : Starting NobugApplication on LAPTOP-28QK5SJA with PID 119720 (G:\Java_Training\2022JavaTraining\NoBug\Code\backend\target\classes started by 86135 in G:\Java_Training\2022JavaTraining\NoBug\Code\backend)
+2022-07-13 13:34:00.155  INFO 119720 --- [main] com.javaTraining.nobug.NobugApplication  : No active profile set, falling back to default profiles: default
+2022-07-13 13:34:01.064  INFO 119720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-13 13:34:01.066  INFO 119720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-13 13:34:01.108  INFO 119720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29ms. Found 0 Redis repository interfaces.
+2022-07-13 13:34:02.019  INFO 119720 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-07-13 13:34:02.028  INFO 119720 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-13 13:34:02.029  INFO 119720 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-07-13 13:34:02.243  INFO 119720 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-13 13:34:02.243  INFO 119720 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2047 ms
+2022-07-13 13:34:02.322  INFO 119720 --- [main] sConfig$$EnhancerBySpringCGLIB$$504867d7 : ====Mybatis Plus====
+2022-07-13 13:34:02.826  WARN 119720 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.RolePermission".
+2022-07-13 13:34:03.610  WARN 119720 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.javaTraining.nobug.pojo.UserRole".
+2022-07-13 13:34:04.096  INFO 119720 --- [main] uration$$EnhancerBySpringCGLIB$$325c3862 : ====通过登录拦截器====
+2022-07-13 13:34:04.100  INFO 119720 --- [main] uration$$EnhancerBySpringCGLIB$$325c3862 : ====解决跨域问题成功！！！====
+2022-07-13 13:34:04.202  INFO 119720 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-13 13:34:04.290  INFO 119720 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-13 13:34:04.887  INFO 119720 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-13 13:34:04.887  INFO 119720 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-13 13:34:04.908  INFO 119720 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-13 13:34:04.933  INFO 119720 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-13 13:34:05.200  INFO 119720 --- [main] com.javaTraining.nobug.NobugApplication  : Started NobugApplication in 5.441 seconds (JVM running for 6.318)
+2022-07-13 16:28:57.890  INFO 119720 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javaTraining.nobug.mapper.ProjectMapper">
+
+    <sql id="page">
+        <if test="pageNum != null and pageSize != null">
+            <bind name="curNum" value="(pageNum-1)*pageSize" />
+            limit #{curNum},#{pageSize}
+        </if>
+    </sql>
+
+
+
+    <select id="getProjectListByPage" resultType="com.javaTraining.nobug.vo.ProjectVo" parameterType="java.util.Map">
+        select p.*,pc.project_class_name,u.user_name,u.user_portrait,ps.on_time_score,ps.cost_time_score,ps.defect_score,ps.addition_score,ps.message,ps.scheme_id,ps.on_time_score+ps.cost_time_score+ps.defect_score+ps.addition_score as score
+        from projects as p,project_class as pc,userinfo as u,project_score as ps
+        where p.project_class_id=pc.project_class_id
+        and u.user_id = p.user_id
+        and p.is_delete=0
+        and p.project_id=ps.project_id
+        and p.status >= 2
+        <if test="projectName != null and projectName != ''">
+            and p.project_name LIKE '%${projectName}%'
+        </if>
+        <if test="projectClassId != null">
+            and p.project_class_id=#{projectClassId}
+        </if>
+        <if test="scheduledStartTime != null">
+            and p.scheduled_start_time &gt;= #{scheduledStartTime}
+        </if>
+        <if test="actualStartTime != null">
+            and p.actual_start_time &gt;= #{actualStartTime}
+        </if>
+        <if test="actualEndTime != null">
+            and p.actual_end_time &lt;= #{actualEndTime}
+        </if>
+        <if test="scheduledEndTime != null">
+            and p.scheduled_end_time &lt;= #{scheduledEndTime}
+        </if>
+        <if test="userId != null">
+            and p.user_id=#{userId}
+        </if>
+        <if test="importantDegree != null">
+            and p.important_degree=#{importantDegree}
+        </if>
+        <if test="minScore != null">
+            and p.status>2 and ps.on_time_score+ps.defect_score+ps.cost_time_score+ps.addition_score &gt;= #{minScore}
+        </if>
+        <if test="maxScore != null">
+            and p.status>2 and ps.on_time_score+ps.defect_score+ps.cost_time_score+ps.addition_score &lt;= #{maxScore}
+        </if>
+        order by p.status,p.important_degree desc,p.scheduled_end_time desc
+<!--        <include refid="page"></include>-->
+    </select>
+
+    <select id="getProjectListByLimit" resultType="Long" parameterType="java.util.Map">
+        select p.project_id
+        from projects as p,project_class as pc,userinfo as u,project_score as ps
+        where p.project_class_id = pc.project_class_id
+        and u.user_id = p.user_id
+        and p.is_delete = 0
+        and p.project_id = ps.project_id
+        and p.status > 2
+        <if test="projectName != null and projectName != ''">
+            and p.project_name LIKE '%${projectName}%'
+        </if>
+        <if test="projectClassId != null">
+            and p.project_class_id=#{projectClassId}
+        </if>
+        <if test="scheduledStartTime != null">
+            and p.scheduled_start_time &gt;= #{scheduledStartTime}
+        </if>
+        <if test="actualStartTime != null">
+            and p.actual_start_time &gt;= #{actualStartTime}
+        </if>
+        <if test="actualEndTime != null">
+            and p.actual_end_time &lt;= #{actualEndTime}
+        </if>
+        <if test="scheduledEndTime != null">
+            and p.scheduled_end_time &lt;= #{scheduledEndTime}
+        </if>
+        <if test="userId != null">
+            and p.user_id=#{userId}
+        </if>
+        <if test="importantDegree != null">
+            and p.important_degree=#{importantDegree}
+        </if>
+        <if test="minScore != null">
+            and ps.on_time_score+ps.defect_score+ps.cost_time_score+ps.addition_score &gt;= #{minScore}
+        </if>
+        <if test="maxScore != null">
+            and ps.on_time_score+ps.defect_score+ps.cost_time_score+ps.addition_score &lt;= #{maxScore}
+        </if>
+        order by p.status,p.important_degree desc,p.scheduled_end_time desc
+        <include refid="page"></include>
+    </select>
+</mapper>
