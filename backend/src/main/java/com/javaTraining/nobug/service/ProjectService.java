@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.javaTraining.nobug.common.OutputObject;
 import com.javaTraining.nobug.common.ResultObj;
 import com.javaTraining.nobug.pojo.Project;
+import com.javaTraining.nobug.pojo.User;
 import com.javaTraining.nobug.vo.ProjectVo;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -22,4 +23,7 @@ public interface ProjectService extends IService<Project> {
 
     ResultObj commitProject(Long projectId);
 
+    ProjectVo getProjectById(Long projectId);
+
+    List<User> getProjectMasterUsers();
 }

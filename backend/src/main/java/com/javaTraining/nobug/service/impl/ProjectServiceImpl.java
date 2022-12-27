@@ -128,5 +128,15 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
     }
 
+    @Override
+    public ProjectVo getProjectById(Long projectId) {
+        return projectMapper.getProjectById(projectId);
+    }
+
+    @Override
+    public List<User> getProjectMasterUsers() {
+        return projectMapper.getProjectMasterUsers();
+    }
+
 
 }
