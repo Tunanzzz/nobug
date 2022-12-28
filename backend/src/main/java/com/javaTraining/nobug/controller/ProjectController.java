@@ -7,6 +7,7 @@ import com.javaTraining.nobug.service.AssessmentSchemeService;
 import com.javaTraining.nobug.service.DefectService;
 import com.javaTraining.nobug.service.ProjectService;
 import com.javaTraining.nobug.service.TaskService;
+import com.javaTraining.nobug.service.impl.ProjectServiceImpl;
 import com.javaTraining.nobug.vo.AssessSchemeVo;
 import com.javaTraining.nobug.vo.ProjectScoreRequestVo;
 import com.javaTraining.nobug.vo.ProjectVo;

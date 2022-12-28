@@ -6,6 +6,8 @@ import com.javaTraining.nobug.common.OutputObject;
 import com.javaTraining.nobug.common.ResultObj;
 import com.javaTraining.nobug.pojo.Project;
 import com.javaTraining.nobug.pojo.User;
+import com.javaTraining.nobug.service.factory.core.FactoryService;
+import com.javaTraining.nobug.service.factory.core.ProjectEnum;
 import com.javaTraining.nobug.vo.ProjectVo;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -14,7 +16,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
 
-public interface ProjectService extends IService<Project> {
+public interface ProjectService extends IService<Project>, FactoryService<ProjectEnum> {
 
     OutputObject getProjectListByPage(Map<String,Object> map);
 
