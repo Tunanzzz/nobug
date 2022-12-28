@@ -16,4 +16,6 @@ public interface ProjectScoreService extends IService<ProjectScore> {
     public Double calculateScoreByThreshold(Double ratio, List<ThresholdVo> thresholdVoList,Double paraWeight);
 
     public Double getProjectRankInSameAssessScheme(Long projectId);
+
+    Boolean commitReviewProject(Map<String, Object> map);
 }

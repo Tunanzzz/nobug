@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 @Service
-public class User_RoleServiceImpl extends ServiceImpl<UserRoleMapper, UserRole> implements UserRoleService {
+public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper, UserRole> implements UserRoleService {
 
     @Resource
     private UserRoleMapper userRoleMapper;

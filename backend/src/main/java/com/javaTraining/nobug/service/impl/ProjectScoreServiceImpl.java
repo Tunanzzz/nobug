@@ -193,4 +193,9 @@ public class ProjectScoreServiceImpl extends ServiceImpl<ProjectScoreMapper, Pro
         rank = iCount/Count;
         return rank;
     }
+
+    @Override
+    public Boolean commitReviewProject(Map<String, Object> map) {
+        return projectScoreMapper.commitReviewProject(map);
+    }
 }

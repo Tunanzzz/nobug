@@ -9,6 +9,7 @@ import com.javaTraining.nobug.pojo.Project;
 import com.javaTraining.nobug.pojo.ProjectScore;
 import com.javaTraining.nobug.pojo.User;
 import com.javaTraining.nobug.service.ProjectScoreService;
+import com.javaTraining.nobug.service.ProjectService;
 import com.javaTraining.nobug.vo.ProjectScoreRequestVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -32,9 +33,11 @@ public class ProjectScoreController {
     @Autowired
     private ProjectScoreService projectScoreService;
     @Autowired
-    private ProjectScoreMapper projectScoreMapper;
-    @Autowired
-    private ProjectMapper projectMapper;
+    private ProjectService projectService;
+//    @Autowired
+//    private ProjectScoreMapper projectScoreMapper;
+//    @Autowired
+//    private ProjectMapper projectMapper;
     @GetMapping("/calculateProjectScoreBySchemeId")
     public OutputObject calculateProjectScoreBySchemeId(@RequestParam(required = true) Long projectId,@RequestParam(required = true) Long schemeId,
                                                         @RequestParam(required = true) Long review_user_id, @RequestHeader String token) {
@@ -55,22 +58,21 @@ public class ProjectScoreController {
         map.put("additionScore",pv.getAdditionScore());
         QueryWrapper<Project> queryWrapper = new QueryWrapper<>();
         queryWrapper.in("project_id",pv.getProjectId());
-        Project project =  projectMapper.selectOne(queryWrapper);
+        Project project =  projectService.selectOne(queryWrapper);
         if(project == null){
             return new OutputObject(String.valueOf(HttpStatus.BAD_REQUEST.value()),"项目不存在",null);
         }else if( project.getStatus() > 3){
             return new OutputObject(String.valueOf(HttpStatus.BAD_REQUEST.value()),"项目已被审核，无法再次审核",null);
         }else {
-            Boolean b = projectScoreMapper.commitReviewProject(map);
+            Boolean b = projectScoreService.commitReviewProject(map);
             project.setStatus(3);
-            projectMapper.update(project,queryWrapper);
+            projectService.update(project,queryWrapper);
             if(b = false){
                 return new OutputObject(String.valueOf(HttpStatus.BAD_REQUEST.value()),"审核失败",null);
             }else {
                 return new OutputObject(String.valueOf(HttpStatus.OK.value()),"审核成功",null) ;
             }
         }
-
     }
 
     @GetMapping("/getProjectRankInSameAssessScheme")

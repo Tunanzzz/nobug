@@ -2,15 +2,11 @@ package com.javaTraining.nobug.controller;
 
 import com.javaTraining.nobug.common.OutputObject;
 import com.javaTraining.nobug.common.ResultObj;
-import com.javaTraining.nobug.mapper.AssessParameterMapper;
-import com.javaTraining.nobug.mapper.DefectMapper;
-import com.javaTraining.nobug.mapper.ProjectMapper;
-import com.javaTraining.nobug.mapper.TaskMapper;
 import com.javaTraining.nobug.pojo.User;
-import com.javaTraining.nobug.service.AssessParameterService;
 import com.javaTraining.nobug.service.AssessmentSchemeService;
+import com.javaTraining.nobug.service.DefectService;
 import com.javaTraining.nobug.service.ProjectService;
-import com.javaTraining.nobug.service.impl.ProjectServiceImpl;
+import com.javaTraining.nobug.service.TaskService;
 import com.javaTraining.nobug.vo.AssessSchemeVo;
 import com.javaTraining.nobug.vo.ProjectScoreRequestVo;
 import com.javaTraining.nobug.vo.ProjectVo;
@@ -28,9 +24,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.javaTraining.nobug.common.ResultObj.UPDATE_FAIL;
-import static com.javaTraining.nobug.common.ResultObj.UPDATE_SUCCESS;
-
 @RestController
 @RequestMapping("/project")
 @Api(value = "项目接口", tags = "项目相关的接口")
@@ -38,13 +31,17 @@ import static com.javaTraining.nobug.common.ResultObj.UPDATE_SUCCESS;
 public class ProjectController {
 
     @Autowired
-    private ProjectServiceImpl projectService;
+    private ProjectService projectService;
     //    @Autowired
 //    private ProjectMapper projectMapper;
     @Autowired
-    private TaskMapper taskMapper;
+    private TaskService taskService;
+//    @Autowired
+//    private TaskMapper taskMapper;
     @Autowired
-    private DefectMapper defectMapper;
+    private DefectService defectService;
+//    @Autowired
+//    private DefectMapper defectMapper;
     @Autowired
     private AssessmentSchemeService assessmentSchemeService;
 
@@ -89,8 +86,8 @@ public class ProjectController {
         AssessSchemeVo assessSchemeVo = assessmentSchemeService.getSchemeById(projectVo.getSchemeId());
         resultmap.put("schemeInfo", assessSchemeVo);
         resultmap.put("projectBaseInfo", projectVo);
-        resultmap.put("tasks", taskMapper.selectTaskByProjectId(projectId));
-        resultmap.put("defects", defectMapper.selectDefectByProjectId(projectId));
+        resultmap.put("tasks", taskService.selectTaskByProjectId(projectId));
+        resultmap.put("defects", defectService.selectDefectByProjectId(projectId));
 
         return new OutputObject(String.valueOf(HttpStatus.OK.value()), "成功", resultmap);
     }
@@ -128,5 +125,4 @@ public class ProjectController {
         System.out.println(projectScoreRequestVo);
         return projectService.commitProject(projectScoreRequestVo.getProjectId());
     }
-
 }

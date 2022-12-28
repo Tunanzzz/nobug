@@ -13,8 +13,18 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 @Service
-public class Role_PermissionServiceImpl extends ServiceImpl<RolePermissionMapper, RolePermission> implements RolePermissionService {
+public class RolePermissionServiceImpl extends ServiceImpl<RolePermissionMapper, RolePermission> implements RolePermissionService {
 
     @Resource
     private RolePermissionMapper rolePermissionMapper;
+
+    @Override
+    public void deleteRolePermissionByRoleId(Long roleId) {
+        rolePermissionMapper.deleteRolePermissionByRoleId(roleId);
+    }
+
+    @Override
+    public void addRolePermission(RolePermission rolePermission) {
+        rolePermissionMapper.addRolePermission(rolePermission);
+    }
 }

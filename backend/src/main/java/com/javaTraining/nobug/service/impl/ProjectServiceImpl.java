@@ -138,5 +138,10 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         return projectMapper.getProjectMasterUsers();
     }
 
+    @Override
+    public Project selectOne(QueryWrapper<Project> queryWrapper) {
+        return projectMapper.selectOne(queryWrapper);
+    }
+
 
 }

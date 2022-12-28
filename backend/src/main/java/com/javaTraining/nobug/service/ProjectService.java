@@ -1,5 +1,6 @@
 package com.javaTraining.nobug.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.javaTraining.nobug.common.OutputObject;
 import com.javaTraining.nobug.common.ResultObj;
@@ -26,4 +27,6 @@ public interface ProjectService extends IService<Project> {
     ProjectVo getProjectById(Long projectId);
 
     List<User> getProjectMasterUsers();
+
+    Project selectOne(QueryWrapper<Project> queryWrapper);
 }
