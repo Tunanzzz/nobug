@@ -2,6 +2,7 @@ package com.javaTraining.nobug.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.common.collect.ObjectArrays;
+import com.javaTraining.nobug.common.NormalizeMap;
 import com.javaTraining.nobug.common.OutputObject;
 import com.javaTraining.nobug.common.ResultObj;
 import com.javaTraining.nobug.mapper.AssessParameterMapper;
@@ -78,12 +79,7 @@ public class AssessmentSchemeController {
             @ApiImplicitParam(name = "pageSize", value = "页大小", paramType = "query", dataType = "int")
     })
     private OutputObject GetSchemesListByPage(@ApiIgnore @RequestParam Map<String, Object> map, @RequestHeader String token) {
-        Object pageNum = map.get("pageNum");
-        Object pageSize = map.get("pageSize");
-        if (pageNum != null && pageSize != null) {
-            map.replace("pageNum", Integer.parseInt(pageNum.toString()));
-            map.replace("pageSize", Integer.parseInt(pageSize.toString()));
-        }
+        map = NormalizeMap.normalizeMapKeyName(map);
         List<UserResponseVo> assessmentScheme = assessmentSchemeMapper.getSchemeListByPage(map);
         QueryWrapper<AssessmentScheme> queryWrapper = new QueryWrapper<>();
         Integer count = assessmentSchemeMapper.selectCount(queryWrapper);

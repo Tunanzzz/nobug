@@ -126,12 +126,7 @@ public class UserController {
             @ApiImplicitParam(name = "pageSize", value = "页大小", paramType = "query", dataType = "int")
     })
     public OutputObject getUserListByPage(@RequestHeader(name = "token") String token,@ApiIgnore @RequestParam Map<String ,Object> map) {
-        Object pageNum = map.get("pageNum");
-        Object pageSize = map.get("pageSize");
-        if (pageNum != null && pageSize != null){
-            map.replace("pageNum",Integer.parseInt(pageNum.toString()));
-            map.replace("pageSize",Integer.parseInt(pageSize.toString()));
-        }
+        map = NormalizeMap.normalizeMapKeyName(map);
         List<UserResponseVo> users = userMapper.getUserListByPage(map);
         for(UserResponseVo user:users){
             List<Role> rolesList = roleService.getRolesByUserId(user.getUserId());

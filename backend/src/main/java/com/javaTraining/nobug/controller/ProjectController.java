@@ -1,13 +1,11 @@
 package com.javaTraining.nobug.controller;
 
-import com.javaTraining.nobug.common.OutputObject;
-import com.javaTraining.nobug.common.ResultObj;
+import com.javaTraining.nobug.common.*;
 import com.javaTraining.nobug.pojo.User;
 import com.javaTraining.nobug.service.AssessmentSchemeService;
 import com.javaTraining.nobug.service.DefectService;
 import com.javaTraining.nobug.service.ProjectService;
 import com.javaTraining.nobug.service.TaskService;
-import com.javaTraining.nobug.service.impl.ProjectServiceImpl;
 import com.javaTraining.nobug.vo.AssessSchemeVo;
 import com.javaTraining.nobug.vo.ProjectScoreRequestVo;
 import com.javaTraining.nobug.vo.ProjectVo;
@@ -63,12 +61,7 @@ public class ProjectController {
             @ApiImplicitParam(name = "importantDegree", paramType = "query", dataType = "int")
     })
     public OutputObject getProjectListByPage(@ApiIgnore @RequestParam Map<String, Object> map, @RequestHeader String token) {
-        Object pageNum = map.get("pageNum");
-        Object pageSize = map.get("pageSize");
-        if (pageNum != null && pageSize != null) {
-            map.replace("pageNum", Integer.parseInt(pageNum.toString()));
-            map.replace("pageSize", Integer.parseInt(pageSize.toString()));
-        }
+        map = NormalizeMap.normalizeMapKeyName(map);
         return projectService.getProjectListByPage(map);
     }
 

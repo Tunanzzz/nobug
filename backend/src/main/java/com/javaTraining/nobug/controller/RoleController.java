@@ -62,12 +62,7 @@ public class RoleController {
             @ApiImplicitParam(name = "pageSize", value = "页大小", paramType = "query", dataType = "int")
     })
     public OutputObject getRoleListByPage(@RequestHeader(name = "token") String token,@ApiIgnore @RequestParam Map<String ,Object> map) {
-        Object pageNum = map.get("pageNum");
-        Object pageSize = map.get("pageSize");
-        if (pageNum != null && pageSize != null){
-            map.replace("pageNum",Integer.parseInt(pageNum.toString()));
-            map.replace("pageSize",Integer.parseInt(pageSize.toString()));
-        }
+        map = NormalizeMap.normalizeMapKeyName(map);
         List<RoleResponseVo> roles = roleService.getRoleListByPage(map);
         for(RoleResponseVo role:roles){
             List<Permission> permissionsList = permissionService.getPermissionsByRoleId(role.getRoleId());
