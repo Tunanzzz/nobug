@@ -1,16 +1,19 @@
 package com.javaTraining.nobug.vo;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.javaTraining.nobug.common.ResultObj;
+import com.javaTraining.nobug.vo.abstractVo.Component;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DefectResponseVo {
+public class DefectResponseVo extends Component {
     private Long defectId;
 
     private String defectName;
@@ -36,4 +39,24 @@ public class DefectResponseVo {
     private String userName;    // 任务承担者
 
     private String userPortrait;    // 用户头像
+
+    @Override
+    public ResultObj operation() {
+        return null;
+    }
+
+    @Override
+    public Boolean add(Component component) {
+        return null;
+    }
+
+    @Override
+    public Component remove() {
+        return null;
+    }
+
+    @Override
+    public List<Component> getChild() {
+        return null;
+    }
 }

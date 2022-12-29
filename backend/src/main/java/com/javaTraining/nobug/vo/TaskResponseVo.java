@@ -3,16 +3,20 @@ package com.javaTraining.nobug.vo;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.javaTraining.nobug.common.ResultObj;
+import com.javaTraining.nobug.vo.abstractVo.Component;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
 import java.util.Date;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaskResponseVo {
+public class TaskResponseVo extends Component {
     private Long taskId;
 
     private String taskName;
@@ -41,4 +45,23 @@ public class TaskResponseVo {
 
     private String userPortrait;    // 用户头像
 
+    @Override
+    public ResultObj operation() {
+        return null;
+    }
+
+    @Override
+    public Boolean add(Component component) {
+        return null;
+    }
+
+    @Override
+    public Component remove() {
+        return null;
+    }
+
+    @Override
+    public List<Component> getChild() {
+        return null;
+    }
 }
